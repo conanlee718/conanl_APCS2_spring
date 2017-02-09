@@ -2,7 +2,7 @@ package ticket;
 
 public abstract class Ticket {
 	private int ticket;
-	private double price=15.0;
+	private double price=50.0;
 
 	public Ticket(int ticket){
 		this.ticket=ticket;
