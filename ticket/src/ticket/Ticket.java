@@ -1,18 +1,36 @@
 package ticket;
 
-abstract class Ticket {
-	int ticket;
-	double price;
+public abstract class Ticket {
+	private int ticket;
+	private double price=15.0;
 
-	public Ticket(int number){
-		
+	public Ticket(int ticket){
+		this.ticket=ticket;
 	}
-	public double getPrice(double price){
-		price=50.0;
+	public double getPrice(){
 		return(price);
 	}
 	public String toString(){
-		return("Number: "+number+", Price: "+getPrice());
+		return("Number: "+this.ticket+", Price: "+getPrice());
 	}
 }
 	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
