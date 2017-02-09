@@ -10,6 +10,9 @@ public abstract class Ticket {
 	public double getPrice(){
 		return(price);
 	}
+	public void setPrice(double p){
+		this.price=p;
+	}
 	public String toString(){
 		return("Number: "+this.ticket+", Price: "+getPrice());
 	}
@@ -33,4 +36,3 @@ public abstract class Ticket {
 	
 	
 	
-}
