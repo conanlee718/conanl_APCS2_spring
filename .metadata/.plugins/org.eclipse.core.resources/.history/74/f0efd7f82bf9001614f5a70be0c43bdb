@@ -1,0 +1,9 @@
+import java.io.*;
+import java.util.*;
+public class getWeatherTemp {
+	public static void main(String[] args) throws FileNotFoundException {
+		 Scanner input = new Scanner(new   File("weather.txt"));
+		 Double temp=input.nextDouble();
+		 System.out.println(temp);
+	}
+}
