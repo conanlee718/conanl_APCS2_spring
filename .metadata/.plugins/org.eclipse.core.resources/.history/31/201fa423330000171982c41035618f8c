@@ -5,16 +5,14 @@ package textExcel;
 public class Spreadsheet implements Grid
 {
 	private Cell[][] cells;
-	
 	public Spreadsheet(){
-		cells=new Cell[getRows()][getCols()];
+		cells=new Cell[20][12];
 		for(int i=0;i<cells.length;i++){
-			for(int j=0;j<cells[i].length;j++){
-				cells[i][j]=new EmptyCell();
+			for(int j=0;j<cells[i].length;i++){
+				cells[i][j]=EmptyCell;
 			}
 		}
 	}
-	
 	@Override
 	public String processCommand(String command)
 	{

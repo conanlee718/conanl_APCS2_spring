@@ -8,13 +8,9 @@ public class Spreadsheet implements Grid
 	
 	public Spreadsheet(){
 		cells=new Cell[getRows()][getCols()];
-		for(int i=0;i<cells.length;i++){
-			for(int j=0;j<cells[i].length;j++){
-				cells[i][j]=new EmptyCell();
-			}
-		}
+		
+			
 	}
-	
 	@Override
 	public String processCommand(String command)
 	{
