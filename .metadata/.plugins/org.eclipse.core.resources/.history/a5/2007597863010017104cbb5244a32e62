@@ -13,7 +13,7 @@ public class SpreadsheetLocation implements Location
     public int getRow()
     {
         // TODO Auto-generated method stub
-        Scanner rows=new Scanner(System.in);				//scanner for number of rows
+        Scanner rows=new Scanner(System.in);
         int rowNumber=rows.nextInt();
         return rowNumber;
     }
@@ -22,7 +22,7 @@ public class SpreadsheetLocation implements Location
     public int getCol()
     {
         // TODO Auto-generated method stub
-        Scanner columns=new Scanner(System.in);				//scanner for number of columns
+        Scanner columns=new Scanner(System.in);
         int colNumber=columns.nextInt();
         return colNumber;
     }

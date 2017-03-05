@@ -1,7 +1,3 @@
-//Conan Lee
-//APCS 2nd period
-//finished date for checkpoint 1 : 3/4/17
-
 package textExcel;
 
 public class EmptyCell implements Cell {

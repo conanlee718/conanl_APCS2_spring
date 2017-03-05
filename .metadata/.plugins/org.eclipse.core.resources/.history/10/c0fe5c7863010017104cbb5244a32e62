@@ -14,12 +14,12 @@ public class TextExcel
 
 	public static void main(String[] args)
 	{
-		Scanner input=new Scanner(System.in);				//scanner setup
+		Scanner input=new Scanner(System.in);
 		String command=input.nextLine();
 		Spreadsheet spreadsheet=new Spreadsheet();
 		System.out.print(spreadsheet.getGridText());
 	    // Add your command loop here
-		while(!command.equals("quit")){						//loops until "quit" is entered in console
+		while(!command.equals("quit")){
 			command=input.nextLine();
 			spreadsheet.processCommand(command);
 		}
