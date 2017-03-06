@@ -8,29 +8,29 @@ import java.util.Scanner;
 
 public class SpreadsheetLocation implements Location
 {
-	private int rowNum;
-	private int colNum;
-	private String cellName;
 	
     @Override
     public int getRow()
     {
         // TODO Auto-generated method stub
-        return rowNum;
+        Scanner rows=new Scanner(System.in);				//scanner for number of rows
+        int rowNumber=rows.nextInt();
+        return rowNumber;
     }
 
     @Override
     public int getCol()
     {
         // TODO Auto-generated method stub
-        return colNum;
+        Scanner columns=new Scanner(System.in);				//scanner for number of columns
+        int colNumber=columns.nextInt();
+        return colNumber;
     }
     
-    public SpreadsheetLocation(String cellName){
+    public SpreadsheetLocation(String cellName)
+    {
     	
         // TODO: Fill this out with your own code
-    	colNum=(int)cellName.charAt(0)-(int)'A';
-    	rowNum=Integer.parseInt(cellName.substring(1))-1;
     }
 
 }

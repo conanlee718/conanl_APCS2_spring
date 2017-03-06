@@ -51,14 +51,7 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
-		String str="Apple Banana Orange";
-		String[] arr=str.split(" ");
-		String wholeSheet="";
-		for(int i=0;i<str.length();i++){
-			wholeSheet+=arr[i];
-		}
-		
-		return wholeSheet;
+		return null;
 	}
 
 }

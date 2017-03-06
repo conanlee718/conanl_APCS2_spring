@@ -30,7 +30,7 @@ public class SpreadsheetLocation implements Location
     	
         // TODO: Fill this out with your own code
     	colNum=(int)cellName.charAt(0)-(int)'A';
-    	rowNum=Integer.parseInt(cellName.substring(1))-1;
+    	rowNum=Integer.parseInt(cellName.substring(1))+1;
     }
 
 }
