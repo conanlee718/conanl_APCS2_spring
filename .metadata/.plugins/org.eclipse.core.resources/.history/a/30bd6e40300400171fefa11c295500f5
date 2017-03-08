@@ -29,9 +29,6 @@ public class Spreadsheet implements Grid
     	
 	}
 	
-	//public String assignString(){
-	//	
-	//}
 	
 	@Override
 	public int getRows()

@@ -22,17 +22,6 @@ public class Spreadsheet implements Grid
 		return "";
 	}
 
-	public String cellInspection(String cellName){
-		int colNum=(int)cellName.charAt(0)-(int)'A';
-    	int rowNum=Integer.parseInt(cellName.substring(1))-1;
-    	return cells[rowNum][colNum].fullCellText();
-    	
-	}
-	
-	//public String assignString(){
-	//	
-	//}
-	
 	@Override
 	public int getRows()
 	{
@@ -58,13 +47,11 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
-		
+		String str="Apple Banana Orange";
+		String[] arr=str.split(" ");
 		String wholeSheet="";
-		for(int i=0;i<cells.length;i++){
-			for(int j=0;j<cells[i].length;j++){
-				wholeSheet+=" ";
-				wholeSheet+=cells[i][j];
-			}
+		for(int i=0;i<str.length();i++){
+			wholeSheet+=arr[i];
 		}
 		
 		return wholeSheet;

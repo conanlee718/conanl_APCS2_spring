@@ -22,17 +22,6 @@ public class Spreadsheet implements Grid
 		return "";
 	}
 
-	public String cellInspection(String cellName){
-		int colNum=(int)cellName.charAt(0)-(int)'A';
-    	int rowNum=Integer.parseInt(cellName.substring(1))-1;
-    	return cells[rowNum][colNum].fullCellText();
-    	
-	}
-	
-	//public String assignString(){
-	//	
-	//}
-	
 	@Override
 	public int getRows()
 	{
