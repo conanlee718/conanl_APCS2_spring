@@ -18,6 +18,20 @@ public class Spreadsheet implements Grid
 	@Override
 	public String processCommand(String command)
 	{
+		if(command.equals("")){
+			return command;
+		}
+		if(command.toUpperCase().equals("CLEAR")){
+		//for loop to make everything empty cell
+			return this.getGridText();
+		}	
+		if(command.toUpperCase().startsWith("CLEAR")){
+			
+			
+			
+			return "";
+		}							
+		
 		// TODO Auto-generated method stub
 		return "";
 	}
@@ -58,7 +72,18 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
+	String header="    |";
+	char start='A';
+	for(int col=0;col<this.getCols();col++){
+		header+=((char)(start+col))+"       |";
+	}
+	
+	String rowsHeading="";
+	
 		
+		
+		
+		/*
 		String wholeSheet="";
 		for(int i=0;i<cells.length;i++){
 			for(int j=0;j<cells[i].length;j++){
@@ -66,8 +91,7 @@ public class Spreadsheet implements Grid
 				wholeSheet+=cells[i][j];
 			}
 		}
-		
-		return wholeSheet;
+		*/
+		return null;
 	}
-
 }
