@@ -102,10 +102,10 @@ public class Spreadsheet implements Grid
 			}else{
 				rows=((row+1)+" |");
 			}
-			for(int cell=0;cell<cells[0].length;cell++){
-				rows+="          |";
+			for(int cell=0;cell<12;cell++){
+				rows+=cells[row][cell].abbreviatedCellText() + "|";
 			}
-			spreadsheet+=rows+ "\n";
+			spreadsheet+=rows+"\n";
 		}
 		// TODO Auto-generated method stub
 		return spreadsheet;

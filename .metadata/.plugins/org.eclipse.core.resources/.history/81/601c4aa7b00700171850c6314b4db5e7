@@ -89,7 +89,7 @@ public class Spreadsheet implements Grid
 		// TODO Auto-generated method stub
 		String firstHeader="   |";
 		String spreadsheet="";
-	
+		String rowNumber="";
 		
 		for(int col=0;col<this.getCols();col++){
 			firstHeader+=((char)('A'+col))+"         |";
@@ -105,7 +105,8 @@ public class Spreadsheet implements Grid
 			for(int cell=0;cell<cells[0].length;cell++){
 				rows+="          |";
 			}
-			spreadsheet+=rows+ "\n";
+			rowNumber="\n";
+			spreadsheet+=rows+ rowNumber;
 		}
 		// TODO Auto-generated method stub
 		return spreadsheet;
