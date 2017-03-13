@@ -20,8 +20,10 @@ public class TextExcel
 		System.out.print(spreadsheet.getGridText());
 	    // Add your command loop here
 		while(!command.equals("quit")){						//loops until "quit" is entered in console
+			System.out.print("Next command?");
 			command=input.nextLine();
 			spreadsheet.processCommand(command);
+			System.out.print(spreadsheet.getGridText());
 		}
 	}
 }

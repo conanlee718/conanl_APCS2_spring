@@ -21,27 +21,39 @@ public class Spreadsheet implements Grid
 		if(command.equals("")){
 			return command;
 		}
-		if(command.toUpperCase().equals("CLEAR")){
-		//for loop to make everything empty cell
-			return this.getGridText();
-		}	
+		
+		String[] splitCommand=command.split(" ");
 		if(command.toUpperCase().startsWith("CLEAR")){
+		//for loop to make everything empty cell
+			if(splitCommand.length==1){
+			cells=new EmptyCell[getRows()][getCols()];
+		
+			}else{
+				SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[1]);
+				cells[cell.getRow()][cell.getCol()]=new EmptyCell();
+			}
+			return getGridText();
+		}
+		
+		else if(splitCommand[1].equals("=")){			
+			SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0]);		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
+			
+			return " ";
 			
 			
-			
-			return "";
-		}							
+		}
+		else if(splitCommand.length==1){		//inspection
+			SpreadsheetLocation cell=new SpreadsheetLocation(command);
+			Cell InspectionCell=getCell(cell);
+			return(InspectionCell.fullCellText());
+		}
+		
+								
 		
 		// TODO Auto-generated method stub
 		return "";
 	}
 
-	public String cellInspection(String cellName){
-		int colNum=(int)cellName.charAt(0)-(int)'A';
-    	int rowNum=Integer.parseInt(cellName.substring(1))-1;
-    	return cells[rowNum][colNum].fullCellText();
-    	
-	}
 	
 	//public String assignString(){
 	//	
@@ -65,33 +77,40 @@ public class Spreadsheet implements Grid
 	public Cell getCell(Location loc)
 	{
 		// TODO Auto-generated method stub
-		return null;
+		int row=loc.getRow();
+		int col=loc.getCol();
+		
+		return(cells[row][col]);
 	}
 
 	@Override
 	public String getGridText()
 	{
 		// TODO Auto-generated method stub
-	String header="    |";
-	char start='A';
-	for(int col=0;col<this.getCols();col++){
-		header+=((char)(start+col))+"       |";
-	}
-	
-	String rowsHeading="";
-	
+		String firstHeader="   |";
+		String spreadsheet="";
+		String rowNumber="";
 		
-		
-		
-		/*
-		String wholeSheet="";
-		for(int i=0;i<cells.length;i++){
-			for(int j=0;j<cells[i].length;j++){
-				wholeSheet+=" ";
-				wholeSheet+=cells[i][j];
-			}
+		for(int col=0;col<this.getCols();col++){
+			firstHeader+=((char)('A'+col))+"         |";
 		}
-		*/
-		return null;
+		spreadsheet+=firstHeader + "\n";
+		String rows="";
+		for(int row=0;row<getRows();row++){
+			if(row<9){
+				rows=((row+1)+"  |");
+			}else{
+				rows=((row+1)+" |");
+			}
+			for(int cell=0;cell<cells[0].length;cell++){
+				rows+="          |";
+			}
+			rowNumber="\n";
+			spreadsheet+=rows+ rowNumber;
+		}
+		// TODO Auto-generated method stub
+		return spreadsheet;
+		
+		
 	}
 }
