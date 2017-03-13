@@ -11,7 +11,12 @@ public class Spreadsheet implements Grid
 	private Cell[][] cells;
 	
 	public Spreadsheet(){
-		cells=new EmptyCell[getRows()][getCols()];				//setting dimensions
+		cells=new Cell[getRows()][getCols()];
+		for(int i=0;i<getRows();i++){
+			for(int j=0;j<getCols();j++){
+				cells[i][j]=new EmptyCell();
+			}
+		}
 		
 	}
 	
@@ -19,11 +24,11 @@ public class Spreadsheet implements Grid
 	public String processCommand(String command)
 	{
 		if(command.equals("")){
-			return command;
+			return "";
 		}
 		
-		String[] splitCommand=command.split(" ");
-		if(command.toUpperCase().startsWith("CLEAR")){
+		String[] splitCommand=command.split(" ",3);
+		if(splitCommand[0].toUpperCase().equals("CLEAR")){
 		//for loop to make everything empty cell
 			if(splitCommand.length==1){
 			cells=new EmptyCell[getRows()][getCols()];
@@ -38,7 +43,7 @@ public class Spreadsheet implements Grid
 		else if(splitCommand[1].equals("=")){			
 			SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0]);		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
 			
-			return " ";
+			return "";
 			
 			
 		}
@@ -47,6 +52,8 @@ public class Spreadsheet implements Grid
 			Cell InspectionCell=getCell(cell);
 			return(InspectionCell.fullCellText());
 		}
+		
+		
 		
 								
 		
@@ -103,7 +110,7 @@ public class Spreadsheet implements Grid
 				rows=((row+1)+" |");
 			}
 			for(int cell=0;cell<cells[0].length;cell++){
-				rows+="          |";
+				rows+=cells[row][cell].abbreviatedCellText() +"|";
 			}
 			spreadsheet+=rows+ "\n";
 		}
