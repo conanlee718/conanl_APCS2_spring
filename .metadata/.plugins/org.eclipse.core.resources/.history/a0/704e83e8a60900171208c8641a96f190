@@ -15,7 +15,7 @@ public class TextExcel
 	public static void main(String[] args)
 	{
 		Scanner input=new Scanner(System.in);				//scanner setup
-		String command="";
+		String command=input.nextLine();
 		Spreadsheet spreadsheet=new Spreadsheet();
 		System.out.print(spreadsheet.getGridText());
 	    // Add your command loop here
