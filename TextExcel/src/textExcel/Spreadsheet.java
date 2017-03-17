@@ -27,7 +27,8 @@ public class Spreadsheet implements Grid
 			return "";
 		}
 		
-		String[] splitCommand=command.split(" ",3);
+		String[] splitCommand=command.split(" ");
+		
 		if(splitCommand[0].toUpperCase().equals("CLEAR")){
 		//for loop to make everything empty cell
 			if(splitCommand.length==1){
@@ -40,17 +41,18 @@ public class Spreadsheet implements Grid
 			return getGridText();
 		}
 		
-		if(splitCommand[1].equals("=")){			
+		/*if(splitCommand[1].equals("=")){			
 			//SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0]);		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
 			
 			return getGridText();
 			
 			
-		}
+		}*/
 		if(splitCommand.length==1 && !command.toUpperCase().equals("CLEAR")) {		//inspection
 			SpreadsheetLocation cell=new SpreadsheetLocation(command);
 			Cell InspectionCell=getCell(cell);
-			return(InspectionCell.fullCellText());
+			InspectionCell.fullCellText();
+			return getGridText();
 		}
 		
 		
