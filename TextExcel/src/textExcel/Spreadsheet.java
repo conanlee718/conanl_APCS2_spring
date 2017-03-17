@@ -41,18 +41,18 @@ public class Spreadsheet implements Grid
 			return getGridText();
 		}
 		
-		/*if(splitCommand[1].equals("=")){			
-			//SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0]);		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
+		if(splitCommand[1].equals("=")){			
+			SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0]);		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
 			
 			return getGridText();
 			
 			
-		}*/
+		}
 		if(splitCommand.length==1 && !command.toUpperCase().equals("CLEAR")) {		//inspection
 			SpreadsheetLocation cell=new SpreadsheetLocation(command);
 			Cell InspectionCell=getCell(cell);
-			InspectionCell.fullCellText();
-			return getGridText();
+			return(InspectionCell.fullCellText());
+			
 		}
 		
 		
