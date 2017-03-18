@@ -28,7 +28,7 @@ public class Spreadsheet implements Grid
 		}
 		
 		String[] splitCommand=command.split(" ");
-		command=command.substring(0,1).toUpperCase()+command.substring(1);
+		
 		if(splitCommand[0].toUpperCase().equals("CLEAR")){
 		//for loop to make everything empty cell
 			if(splitCommand.length==1){
@@ -44,12 +44,11 @@ public class Spreadsheet implements Grid
 			return getGridText();
 		}
 		
-		String[] threePartCommand=command.split(" ",3);
 		if(command.charAt(0)>64 && command.charAt(0)<91){
 			//assigning value of TextCell and printing it out on spreadsheet
 			SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0]);		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
 			if(splitCommand[1].equals("=")){			
-				cells[cell.getRow()][cell.getCol()]=new TextCell(threePartCommand[2]);
+				cells[cell.getRow()][cell.getCol()]=new TextCell(splitCommand[2]);
 				String newSheet=this.getGridText();
 				return newSheet;
 			}else{

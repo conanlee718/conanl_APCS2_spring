@@ -8,8 +8,7 @@ public class TextCell implements Cell {
 	@Override
 	public String abbreviatedCellText() {
 		// TODO Auto-generated method stub
-		String[] noParenthesisText=text.split("\"");
-		return((noParenthesisText[1]+"                ").substring(0,10));
+		return((text+"                ").substring(0,10));
 	}
 
 	@Override
