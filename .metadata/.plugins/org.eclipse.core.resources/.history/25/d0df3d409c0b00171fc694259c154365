@@ -46,15 +46,14 @@ public class Spreadsheet implements Grid
 		
 		
 		String[] threePartCommand=command.split(" ",3);
-		//command=command.substring(0, 1).toUpperCase()+command.substring(1);
+		command=command.substring(0, 2).toUpperCase()+command.substring(2);
 		if(command.charAt(0)>64 && command.charAt(0)<91){
-			//Inspecting cell
-			SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0].toUpperCase());		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
+			//assigning value of TextCell and printing it out on spreadsheet
+			SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0]);		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
 			if(command.indexOf("=")==-1){
 				String cellInspecContents=cells[cell.getRow()][cell.getCol()].fullCellText();
 				return cellInspecContents;
 			}
-			//assigning TextCell to spreadsheet and then returning it
 			if(threePartCommand[1].equals("=")){			
 				cells[cell.getRow()][cell.getCol()]=new TextCell(threePartCommand[2]);
 				String newSheet=this.getGridText();

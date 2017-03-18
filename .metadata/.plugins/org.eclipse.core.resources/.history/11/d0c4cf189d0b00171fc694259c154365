@@ -18,12 +18,11 @@ public class TextExcel
 		String command="";
 		Spreadsheet spreadsheet=new Spreadsheet();
 		System.out.print(spreadsheet.getGridText());
-	
+		String[]splitCommand=command.split(" ");
 	    // Add your command loop here
 		while(!command.equals("quit")){						//loops until "quit" is entered in console
 			command=input.nextLine();
 			spreadsheet.processCommand(command);
-			String[]splitCommand=command.split(" ");
 			if(splitCommand.length>1){
 				System.out.print(spreadsheet.getGridText());
 			}

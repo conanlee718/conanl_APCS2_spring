@@ -28,7 +28,7 @@ public class Spreadsheet implements Grid
 		}
 		
 		String[] splitCommand=command.split(" ");
-		//for clearing whole spreadsheet or individual cell
+		
 		if(splitCommand[0].toUpperCase().equals("CLEAR")){
 		//for loop to make everything empty cell
 			if(splitCommand.length==1){
@@ -43,32 +43,27 @@ public class Spreadsheet implements Grid
 			}
 			return getGridText();
 		}
-		
-		
+		command=command.substring(0,1).toUpperCase()+command.substring(1);
 		String[] threePartCommand=command.split(" ",3);
-		//command=command.substring(0, 1).toUpperCase()+command.substring(1);
 		if(command.charAt(0)>64 && command.charAt(0)<91){
-			//Inspecting cell
-			SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0].toUpperCase());		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
-			if(command.indexOf("=")==-1){
-				String cellInspecContents=cells[cell.getRow()][cell.getCol()].fullCellText();
-				return cellInspecContents;
-			}
-			//assigning TextCell to spreadsheet and then returning it
+			//assigning value of TextCell and printing it out on spreadsheet
+			SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0]);		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
 			if(threePartCommand[1].equals("=")){			
 				cells[cell.getRow()][cell.getCol()]=new TextCell(threePartCommand[2]);
 				String newSheet=this.getGridText();
 				return newSheet;
+			}else{
+				String cellInspecContents=cells[cell.getRow()][cell.getCol()].fullCellText();
+				return cellInspecContents;
 			}
-			
 		}
 		//Inspecting a cell
-		/*if(splitCommand.length==1 && !command.toUpperCase().equals("CLEAR")) {		
+		if(splitCommand.length==1 && !command.toUpperCase().equals("CLEAR")) {		
 			SpreadsheetLocation cell=new SpreadsheetLocation(command);
 			Cell InspectionCell=getCell(cell);
 			return(InspectionCell.fullCellText());
 			
-		}*/
+		}
 		// TODO Auto-generated method stub
 		return "";
 	}
