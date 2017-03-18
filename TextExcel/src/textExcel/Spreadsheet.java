@@ -46,10 +46,10 @@ public class Spreadsheet implements Grid
 		}
 		
 		
-		String[] threePartCommand=command.split(" ",3);
+		String[] threePartCommand=command.split(" ",3); //split to 3 because the value assigned or trying to be assigned to cell may have spaces. 
 		command=command.substring(0, 1).toUpperCase()+command.substring(1);
 		
-		if(command.charAt(0)>64 && command.charAt(0)<91){
+		if(command.charAt(0)>(int)'A'-1 && command.charAt(0)<(int)'L'+1){
 			//Inspecting cell
 			SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0].toUpperCase());		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
 			if(splitCommand.length==1){
@@ -57,10 +57,29 @@ public class Spreadsheet implements Grid
 				return cellInspecContents;
 			}
 			//assigning TextCell to spreadsheet and then returning it
-			if(threePartCommand[1].equals("=")){			
-				cells[cell.getRow()][cell.getCol()]=new TextCell(threePartCommand[2]);
-				String newSheet=this.getGridText();
-				return newSheet;
+			if(splitCommand.length>1){			
+				if(threePartCommand[1].equals("=")){			
+					if(threePartCommand[2].charAt(0)=='"'){
+						cells[cell.getRow()][cell.getCol()]=new TextCell(threePartCommand[2]);
+						String newSheet=this.getGridText();
+						return newSheet;
+					}
+					else if(command.charAt(command.length()-1)=='%'){
+						cells[cell.getRow()][cell.getCol()]=new PercentCell(threePartCommand[2]);
+						String newSheet=this.getGridText();
+						return newSheet;
+					}
+					else if(command.charAt(0)=='('){
+						cells[cell.getRow()][cell.getCol()]=new FormulaCell(threePartCommand[2]);
+						String newSheet=this.getGridText();
+						return newSheet;
+					}else{
+						cells[cell.getRow()][cell.getCol()]=new ValueCell(threePartCommand[2]);
+						String newSheet=this.getGridText();
+						return newSheet;
+					}
+				}	
+				
 			}
 			
 		}

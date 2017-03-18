@@ -10,7 +10,7 @@ public class TextCell implements Cell {
 		// TODO Auto-generated method stub
 		String paddedToTen="";
 		paddedToTen=text.substring(1, text.length()-1);
-		paddedToTen+="                    ";
+		paddedToTen+="               ";
 		return paddedToTen.substring(0,10);
 	}
 

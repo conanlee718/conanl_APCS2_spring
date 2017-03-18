@@ -26,6 +26,8 @@ public class TextExcel
 			String[]splitCommand=command.split(" ");
 			if(splitCommand.length>1){
 				System.out.print(spreadsheet.getGridText());
+			}else{
+				System.out.println(spreadsheet.processCommand(command));
 			}
 		}
 	}
