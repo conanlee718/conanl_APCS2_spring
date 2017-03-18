@@ -37,20 +37,22 @@ public class Spreadsheet implements Grid
 						cells[i][j]=new EmptyCell();
 					}
 				}
-			}else{
-				SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[1]);
-				cells[cell.getRow()][cell.getCol()]=new EmptyCell();
+			}else{		//only one designated cell gets cleared
+				splitCommand[1]=splitCommand[1].toUpperCase(); //because splitCommand[1] might be a1, which is lower case
+				SpreadsheetLocation low= new SpreadsheetLocation(splitCommand[1]);
+				cells[low.getRow()][low.getCol()]=new EmptyCell();
 			}
 			return getGridText();
 		}
 		
 		
 		String[] threePartCommand=command.split(" ",3);
-		//command=command.substring(0, 1).toUpperCase()+command.substring(1);
+		command=command.substring(0, 1).toUpperCase()+command.substring(1);
+		
 		if(command.charAt(0)>64 && command.charAt(0)<91){
 			//Inspecting cell
 			SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0].toUpperCase());		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
-			if(command.indexOf("=")==-1){
+			if(splitCommand.length==1){
 				String cellInspecContents=cells[cell.getRow()][cell.getCol()].fullCellText();
 				return cellInspecContents;
 			}
@@ -62,13 +64,9 @@ public class Spreadsheet implements Grid
 			}
 			
 		}
-		//Inspecting a cell
-		/*if(splitCommand.length==1 && !command.toUpperCase().equals("CLEAR")) {		
-			SpreadsheetLocation cell=new SpreadsheetLocation(command);
-			Cell InspectionCell=getCell(cell);
-			return(InspectionCell.fullCellText());
+		
 			
-		}*/
+		
 		// TODO Auto-generated method stub
 		return "";
 	}
