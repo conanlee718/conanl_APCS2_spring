@@ -43,7 +43,7 @@ public class Spreadsheet implements Grid
 					}
 				}
 			}else{		//only one designated cell gets cleared
-				splitCommand[1]=splitCommand[1].toUpperCase(); //use .toUpperCase() because splitCommand[1] might be a1, which is lower case
+				splitCommand[1]=splitCommand[1].toUpperCase(); //because splitCommand[1] might be a1, which is lower case
 				SpreadsheetLocation low= new SpreadsheetLocation(splitCommand[1]);
 				cells[low.getRow()][low.getCol()]=new EmptyCell();
 			}
@@ -160,7 +160,7 @@ public class Spreadsheet implements Grid
 				if(cells[i][j]!=new EmptyCell()){
 					char column = ((char) (j + 65));
 					outputFile.print((column));
-					outputFile.println((i + 1) +  ", TextCell," + cells[i][j].fullCellText());
+					outputFile.println((i + 1) +  ",TextCell," + cells[i][j].fullCellText());
 				}
 			}
 		}
@@ -180,6 +180,6 @@ public class Spreadsheet implements Grid
 			return "File not found:" +filename;
 		}
 		inputFile.close();
-		return getGridText();
+		return "";
 	}
 }
