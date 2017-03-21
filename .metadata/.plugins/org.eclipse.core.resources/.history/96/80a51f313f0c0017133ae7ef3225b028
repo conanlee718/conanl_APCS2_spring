@@ -12,6 +12,31 @@ import java.util.Scanner;
 
 public class TextExcel
 {
+	private String writingFile(String filename){
+		PrintStream outputFile;
+		try{
+			outputFile=new PrintStream(new File(filename));
+		}
+		catch(FileNotFoundException e){
+			return "File not found: " +filename;
+		}
+		
+		outputFile.close();
+		return "";
+	}
+	
+	private String readingFile(String filename){
+		Scanner inputFile;
+		try{
+			inputFile = new Scanner(new File(filename));
+			
+		}
+		catch(FileNotFoundException e){
+			return "File not found:" +filename;
+		}
+		inputFile.close();
+		return "";
+	}
 	
 	public static void main(String[] args)
 	{
@@ -32,31 +57,4 @@ public class TextExcel
 			}
 		}
 	}
-	private String writingFile(String filename){
-		PrintStream outputFile;
-		try{
-			outputFile=new PrintStream(new File(filename));
-		}
-		catch(FileNotFoundException e){
-			return "File not found: " +filename;
-		}
-		Spreadsheet spreadsheet=new Spreadsheet();
-		filename+=spreadsheet.getGridText();
-		outputFile.close();
-		return "";
-	}
-	
-	private String readingFile(String filename){
-		Scanner inputFile;
-		try{
-			inputFile = new Scanner(new File(filename));
-			
-		}
-		catch(FileNotFoundException e){
-			return "File not found:" +filename;
-		}
-		inputFile.close();
-		return "";
-	}
-	
 }

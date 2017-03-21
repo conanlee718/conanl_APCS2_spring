@@ -12,12 +12,13 @@ import java.util.Scanner;
 
 public class TextExcel
 {
+	Spreadsheet spreadsheet=new Spreadsheet();
 	
 	public static void main(String[] args)
 	{
 		Scanner input=new Scanner(System.in);				//scanner setup
 		String command="";
-		Spreadsheet spreadsheet=new Spreadsheet();
+		
 		System.out.print(spreadsheet.getGridText());
 	
 	    // Add your command loop here
@@ -40,8 +41,7 @@ public class TextExcel
 		catch(FileNotFoundException e){
 			return "File not found: " +filename;
 		}
-		Spreadsheet spreadsheet=new Spreadsheet();
-		filename+=spreadsheet.getGridText();
+		spreadsheet.getGridText();
 		outputFile.close();
 		return "";
 	}

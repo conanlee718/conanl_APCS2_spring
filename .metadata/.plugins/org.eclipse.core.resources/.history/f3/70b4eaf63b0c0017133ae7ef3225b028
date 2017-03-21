@@ -5,14 +5,13 @@
 package textExcel;
 
 import java.io.FileNotFoundException;
-import java.io.*;
 import java.util.Scanner;
 
 // Update this file with your own code.
 
 public class TextExcel
 {
-	
+
 	public static void main(String[] args)
 	{
 		Scanner input=new Scanner(System.in);				//scanner setup
@@ -32,31 +31,4 @@ public class TextExcel
 			}
 		}
 	}
-	private String writingFile(String filename){
-		PrintStream outputFile;
-		try{
-			outputFile=new PrintStream(new File(filename));
-		}
-		catch(FileNotFoundException e){
-			return "File not found: " +filename;
-		}
-		Spreadsheet spreadsheet=new Spreadsheet();
-		filename+=spreadsheet.getGridText();
-		outputFile.close();
-		return "";
-	}
-	
-	private String readingFile(String filename){
-		Scanner inputFile;
-		try{
-			inputFile = new Scanner(new File(filename));
-			
-		}
-		catch(FileNotFoundException e){
-			return "File not found:" +filename;
-		}
-		inputFile.close();
-		return "";
-	}
-	
 }

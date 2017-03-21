@@ -41,7 +41,7 @@ public class TextExcel
 			return "File not found: " +filename;
 		}
 		Spreadsheet spreadsheet=new Spreadsheet();
-		filename+=spreadsheet.getGridText();
+		spreadsheet.getGridText();
 		outputFile.close();
 		return "";
 	}
