@@ -147,7 +147,7 @@ public class Spreadsheet implements Grid
 		return spreadsheet;
 	}
 	
-	private String saveFile(String filename){
+	private String writingFile(String filename){
 		Scanner input=new Scanner(System.in);
 		String command="";
 		command=input.nextLine();
@@ -164,21 +164,7 @@ public class Spreadsheet implements Grid
 			for(int j=0;j<getCols();j++){
 				if(cells[i][j]!=new EmptyCell()){
 					if(splitCommand[1].equals("TextCell")){
-						cells[i][j]=new TextCell(splitCommand[2]);
-						String newSheet=this.getGridText();
-						return newSheet;
-					}else if(splitCommand[1].equals("ValueCell")){
-						cells[i][j]=new ValueCell(splitCommand[2]);
-						String newSheet=this.getGridText();
-						return newSheet;
-					}else if(splitCommand[1].equals("PercentCell")){
-						cells[i][j]=new PercentCell(splitCommand[2]);
-						String newSheet=this.getGridText();
-						return newSheet;
-					}else{
-						cells[i][j]=new FormulaCell(splitCommand[2]);
-						String newSheet=this.getGridText();
-						return newSheet;
+						
 					}
 				}
 			}

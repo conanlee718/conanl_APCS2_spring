@@ -166,19 +166,15 @@ public class Spreadsheet implements Grid
 					if(splitCommand[1].equals("TextCell")){
 						cells[i][j]=new TextCell(splitCommand[2]);
 						String newSheet=this.getGridText();
-						return newSheet;
 					}else if(splitCommand[1].equals("ValueCell")){
 						cells[i][j]=new ValueCell(splitCommand[2]);
 						String newSheet=this.getGridText();
-						return newSheet;
 					}else if(splitCommand[1].equals("PercentCell")){
 						cells[i][j]=new PercentCell(splitCommand[2]);
-						String newSheet=this.getGridText();
-						return newSheet;
+						String newsheet=this.getGridText();
 					}else{
 						cells[i][j]=new FormulaCell(splitCommand[2]);
-						String newSheet=this.getGridText();
-						return newSheet;
+						String newsheet=this.getGridText();
 					}
 				}
 			}
