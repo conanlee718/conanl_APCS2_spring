@@ -55,7 +55,7 @@ public class Spreadsheet implements Grid
 		command=command.substring(0, 1).toUpperCase()+command.substring(1);
 		
 		if(command.charAt(0)>(int)'A'-1 && command.charAt(0)<(int)'L'+1){
-			//Inspecting cell-return value at the cell
+			//Inspecting cell
 			SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0].toUpperCase());		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
 			if(splitCommand.length==1){
 				String cellInspecContents=cells[cell.getRow()][cell.getCol()].fullCellText();
@@ -64,21 +64,21 @@ public class Spreadsheet implements Grid
 			//assigning TextCell to spreadsheet and then returning it
 			if(splitCommand.length>1){			
 				if(threePartCommand[1].equals("=")){			
-					if(threePartCommand[2].charAt(0)=='"'){			//TextCell has "" around the string
+					if(threePartCommand[2].charAt(0)=='"'){
 						cells[cell.getRow()][cell.getCol()]=new TextCell(threePartCommand[2]);
 						String newSheet=this.getGridText();
 						return newSheet;
 					}
-					else if(command.charAt(command.length()-1)=='%'){		//PercentCell has % at the end
+					else if(command.charAt(command.length()-1)=='%'){
 						cells[cell.getRow()][cell.getCol()]=new PercentCell(threePartCommand[2]);
 						String newSheet=this.getGridText();
 						return newSheet;
 					}
-					else if(command.charAt(0)=='('){				//FormulaCell has () around the formula
+					else if(command.charAt(0)=='('){
 						cells[cell.getRow()][cell.getCol()]=new FormulaCell(threePartCommand[2]);
 						String newSheet=this.getGridText();
 						return newSheet;
-					}else{											//else statement will go directly to ValueCell
+					}else{
 						cells[cell.getRow()][cell.getCol()]=new ValueCell(threePartCommand[2]);
 						String newSheet=this.getGridText();
 						return newSheet;
@@ -148,11 +148,6 @@ public class Spreadsheet implements Grid
 	}
 	
 	private String writingFile(String filename){
-		Scanner input=new Scanner(System.in);
-		String command="";
-		command=input.nextLine();
-		String[] splitCommand=command.split(",");
-		
 		PrintStream outputFile;
 		try{
 			outputFile=new PrintStream(new File(filename));
@@ -163,14 +158,14 @@ public class Spreadsheet implements Grid
 		for(int i=0;i<getRows();i++){
 			for(int j=0;j<getCols();j++){
 				if(cells[i][j]!=new EmptyCell()){
-					if(splitCommand[1].equals("TextCell")){
-						
-					}
+					char column = ((char) (j + 65));
+					outputFile.print((column));
+					outputFile.println((i + 1) +  ", TextCell," + cells[i][j].fullCellText());
 				}
 			}
 		}
 		outputFile.close();
-		return getGridText();
+		return "";
 	}
 				
 		
