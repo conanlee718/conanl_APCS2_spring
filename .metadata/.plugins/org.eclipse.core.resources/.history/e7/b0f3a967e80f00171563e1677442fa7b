@@ -57,7 +57,7 @@ public class Spreadsheet implements Grid
 		if(command.charAt(0)>(int)'A'-1 && command.charAt(0)<(int)'L'+1){
 			//Inspecting cell-return value at the cell
 			SpreadsheetLocation cell=new SpreadsheetLocation(splitCommand[0].toUpperCase());		//splitCommand[0] is cellName as defined in constructor of SpreadsheetLocation
-			if(splitCommand.length==1 && command.length()<4){
+			if(splitCommand.length==1  ){//command.parseInt(command.substring(1,3)<21)){
 				String cellInspecContents=cells[cell.getRow()][cell.getCol()].fullCellText();
 				return cellInspecContents;
 			}
