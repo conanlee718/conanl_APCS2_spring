@@ -74,7 +74,7 @@ public class Spreadsheet implements Grid
 						String newSheet=this.getGridText();
 						return newSheet;
 					}
-					else if(command.charAt(0)=='('){				//FormulaCell has () around the formula
+					else if(splitCommand[2].charAt(0)=='('){				//FormulaCell has () around the formula
 						cells[cell.getRow()][cell.getCol()]=new FormulaCell(threePartCommand[2]);
 						String newSheet=this.getGridText();
 						return newSheet;
