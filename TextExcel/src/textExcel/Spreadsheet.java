@@ -1,6 +1,8 @@
 //Conan Lee
 //APCS 2nd period
 //finished date for checkpoint 1 : 3/4/17
+//finished date for checkpoint 2 and 3: 3/22/17
+//finished date for checkpoint 1 B : 3/29/17
 
 package textExcel;
 
@@ -31,10 +33,9 @@ public class Spreadsheet implements Grid
 		if(command.equals("")){
 			return command;
 		}
-		
 		String[] splitCommand=command.split(" ");
 		//for clearing whole spreadsheet or individual cell
-		if(splitCommand[0].toUpperCase().equals("CLEAR")){
+		if(splitCommand[0].toUpperCase().equals("CLEAR")){			
 		//for loop to make everything empty cell
 			if(splitCommand.length==1){
 				for(int i=0;i<getRows();i++){
@@ -50,7 +51,6 @@ public class Spreadsheet implements Grid
 			return getGridText();
 		}
 		
-		
 		String[] threePartCommand=command.split(" ",3); //split to 3 because the value assigned or trying to be assigned to cell may have spaces. 
 		command=command.substring(0, 1).toUpperCase()+command.substring(1);
 		
@@ -63,7 +63,7 @@ public class Spreadsheet implements Grid
 			}
 			//assigning TextCell to spreadsheet and then returning it
 			if(splitCommand.length>1){			
-				if(threePartCommand[1].equals("=")){			
+				if(threePartCommand[1].equals("=")){			//check if there is "=" as assigning needs "="
 					if(threePartCommand[2].charAt(0)=='"'){			//TextCell has "" around the string
 						cells[cell.getRow()][cell.getCol()]=new TextCell(threePartCommand[2]);
 						String newSheet=this.getGridText();
@@ -83,14 +83,9 @@ public class Spreadsheet implements Grid
 						String newSheet=this.getGridText();
 						return newSheet;
 					}
-				}	
-				
+				}		
 			}
-			
 		}
-		
-			
-		
 		// TODO Auto-generated method stub
 		return "ERROR: Invalid Command";
 	}
