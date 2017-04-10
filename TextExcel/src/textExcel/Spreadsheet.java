@@ -75,7 +75,7 @@ public class Spreadsheet implements Grid
 						return newSheet;
 					}
 					else if(splitCommand[2].charAt(0)=='('){				//FormulaCell has () around the formula
-						cells[cell.getRow()][cell.getCol()]=new FormulaCell(threePartCommand[2]);
+						cells[cell.getRow()][cell.getCol()]=new FormulaCell(threePartCommand[2], this);
 						String newSheet=this.getGridText();
 						return newSheet;
 					}else{											//else statement will go directly to ValueCell
@@ -171,7 +171,7 @@ public class Spreadsheet implements Grid
 						String newSheet=this.getGridText();
 						return newSheet;
 					}else{
-						cells[i][j]=new FormulaCell(splitCommand[2]);
+						cells[i][j]=new FormulaCell(splitCommand[2], this);
 						String newSheet=this.getGridText();
 						return newSheet;
 					}
