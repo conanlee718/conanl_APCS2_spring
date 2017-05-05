@@ -1,0 +1,19 @@
+import java.awt.*;
+
+import javax.swing.ImageIcon;
+
+public class WhiteKnight implements Chesspiece {
+	private int x;
+	private int y;
+	public WhiteKnight(int a, int b){
+		x=a;
+		y=b;
+		}
+	public boolean validMove(int moveX, int moveY) {
+	
+		return false;
+	}
+	public boolean isWhite(){
+		return true;
+	}
+}

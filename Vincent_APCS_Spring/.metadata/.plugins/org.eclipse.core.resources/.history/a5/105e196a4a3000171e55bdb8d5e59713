@@ -1,0 +1,9 @@
+
+public class Chessboard {
+	Position [][] board = new Position [8][8];
+	public Chessboard(){
+	}
+	public void display(){
+		System.out
+	}
+}

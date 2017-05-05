@@ -1,0 +1,15 @@
+
+public class Chessboard {
+	Chesspiece[][] board= new Chesspiece[8][8];
+	public Chessboard(){
+		for (int i=1;i<7;i++)
+			for (int j=0;j<8;j++){
+				if (i==1)
+				//	board[i][j] = new WhitePawn(j);
+				if (j==6)
+				//	board[i][j] = new BlackPawn(j);
+				board[i][j] = new BlankPiece();
+			}
+	}
+
+}

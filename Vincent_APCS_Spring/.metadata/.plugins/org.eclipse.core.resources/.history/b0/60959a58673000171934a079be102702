@@ -1,0 +1,16 @@
+
+public class BlankPiece implements Chesspiece {
+
+	@Override
+	public boolean validMove(int a, int b) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isWhite() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

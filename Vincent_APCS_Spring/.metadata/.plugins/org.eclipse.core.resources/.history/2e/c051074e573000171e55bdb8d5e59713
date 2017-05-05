@@ -1,0 +1,14 @@
+
+public class WhiteKnight implements Chesspiece {
+
+	
+	public boolean validMove() {
+		return false;
+	}
+
+	@Override
+	public void move() {
+
+	}
+
+}

@@ -1,0 +1,24 @@
+import javax.swing.ImageIcon;
+
+public class WhiteKnight implements Chesspiece {
+	private int x;
+	private int y;
+	private ImageIcon knight;
+	public WhiteKnight(int mouseX, int mouseY){
+		x=mouseX;
+		y=mouseY;
+		knight= new ImageIcon();
+	}
+	public boolean validMove(int moveX, int moveY) {
+	
+		return false;
+	}
+
+	@Override
+	public void move() {
+
+	}
+	public boolean isWhite(){
+		return true;
+	}
+}

@@ -1,0 +1,23 @@
+import javax.swing.ImageIcon;
+
+public class Knight implements Chesspiece {
+	private int x;
+	private int y;
+	private boolean isWhite; 
+	private ImageIcon knight= new ImageIcon(this.getClass().getResource("C:/Users/Vincent/Desktop/Vincent_APCS_Spring/Chess/whiteKnight.jpg"));
+	public Knight(){
+		x=a;
+		y=b;
+		isWhite=c;
+		}
+	public boolean validMove(int moveX, int moveY) {
+	
+		return false;
+	}
+	public boolean isWhite(){
+		return true;
+	}
+	public ImageIcon print(){
+		return knight;
+	}
+}

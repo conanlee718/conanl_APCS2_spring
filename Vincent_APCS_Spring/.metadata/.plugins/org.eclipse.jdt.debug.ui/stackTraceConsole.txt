@@ -1,0 +1,23 @@
+private String <methodname> (String filename){ 1
+
+     PrintStream outputFile;
+
+     try {
+
+            outputFile = new PrintStream(new File(filename));
+
+     }
+
+catch (FileNotFoundException e) {
+
+            return "File not found: " + filename;
+
+       }
+
+<Write all your code here>
+
+outputFile.close();
+
+return <something>;
+
+}
