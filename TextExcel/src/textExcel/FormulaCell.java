@@ -12,7 +12,9 @@ public class FormulaCell extends RealCell{
 	
 	public double getDoubleValue(){
 		String[] splittedFormula=formula.split(" ");
-		double currAnswer=0.0;
+		double currAnswer=0.0;		//to be returned as final answer
+		double valueTotal=0.0;		//ease up code for AVG
+		int count=0;				//counter for number of cells processed or accessed
 		//This is for the first part of input of formula cell to see if it is SUM, AVG, a number, or a cell
 		if(splittedFormula[1].toUpperCase().charAt(0)>(int)'A'-1 && splittedFormula[1].toUpperCase().charAt(0)<(int)'L'+1){
 			SpreadsheetLocation cell = new SpreadsheetLocation(splittedFormula[1]);
@@ -22,6 +24,17 @@ public class FormulaCell extends RealCell{
 			SpreadsheetLocation start =new SpreadsheetLocation(range[0]);
 			SpreadsheetLocation end =new SpreadsheetLocation(range[1]);
 			
+			for(int i=0;i<(start.getRow())+1;i++){
+				for(int j=0;j<(end.getCol())+1;j++){
+					//currAnswer+=((RealCell) cells[i][j]).getDoubleValue();
+					if(start==end){
+						currAnswer=((RealCell)sheet.getCell(start)).getDoubleValue();
+					}else if(start.getRow()>end.getRow()){
+						SpreadsheetLocation middle = new SpreadsheetLocation(range[0]+1);
+						currAnswer+=((RealCell)sheet.getCell(middle)).getDoubleValue();
+					}
+				}
+			}
 			currAnswer=((RealCell)sheet.getCell(start)).getDoubleValue();
 			
 			

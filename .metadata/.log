@@ -559,3 +559,35 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 10 2017-04-30 21:43:45.149
+!MESSAGE Updating the index from remote failed. ; version: 2.0.1.v20160605-1811
+!STACK 0
+java.io.IOException: Cannot overwrite: C:\Users\conan\Desktop\conanl_APCS2_spring\.metadata\.plugins\org.eclipse.epp.logging.aeri.ide\org.eclipse.epp.logging.aeri.ide.server\remote-history\_7.prx
+	at org.apache.lucene.store.FSDirectory.ensureCanWrite(FSDirectory.java:316)
+	at org.apache.lucene.store.FSDirectory.createOutput(FSDirectory.java:305)
+	at org.apache.lucene.store.Directory.copy(Directory.java:232)
+	at org.apache.lucene.index.IndexWriter.copySegmentAsIs(IndexWriter.java:3331)
+	at org.apache.lucene.index.IndexWriter.addIndexes(IndexWriter.java:3159)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerProblemsHistory.replaceContent(ServerProblemsHistory.java:197)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerProblemsHistory$UpdateIndexJob.run(ServerProblemsHistory.java:295)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.recommenders.completion.rcp 4 11 2017-04-30 21:50:23.068
+!MESSAGE Session processor ‘class org.eclipse.recommenders.internal.subwords.rcp.SubwordsSessionProcessor’ failed with exception.
+!STACK 0
+java.lang.OutOfMemoryError: Requested array size exceeds VM limit
+!SESSION 2017-04-30 21:50:38.575 -----------------------------------------------
+eclipse.buildId=4.6.0.I20160606-1100
+java.version=1.8.0_101
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-04-30 21:50:58.801
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\conan'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

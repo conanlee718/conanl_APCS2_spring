@@ -17,7 +17,7 @@ public class Spreadsheet implements Grid
 {
 	private Cell[][] cells;
 	
-	public Spreadsheet(){
+	public Spreadsheet(){						//initially make all cells EmptyCells
 		cells=new Cell[getRows()][getCols()];
 		for(int i=0;i<getRows();i++){
 			for(int j=0;j<getCols();j++){
@@ -87,7 +87,7 @@ public class Spreadsheet implements Grid
 			}
 		}
 		// TODO Auto-generated method stub
-		return "ERROR: Invalid Command";
+		return "ERROR: Invalid Command";	//if other tests above don't pass, return this error string
 	}
 
 
@@ -95,14 +95,14 @@ public class Spreadsheet implements Grid
 	public int getRows()
 	{
 		// TODO Auto-generated method stub
-		return 20;
+		return 20;			//rows are always 20
 	}
 
 	@Override
 	public int getCols()
 	{
 		// TODO Auto-generated method stub
-		return 12;
+		return 12;			//cols are always 12
 	}
 
 	@Override
