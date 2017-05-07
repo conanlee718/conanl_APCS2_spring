@@ -23,7 +23,17 @@ public class FormulaCell extends RealCell{
 			String[] range=splittedFormula[2].split("-");
 			SpreadsheetLocation start =new SpreadsheetLocation(range[0]);
 			SpreadsheetLocation end =new SpreadsheetLocation(range[1]);
+			double sum=0;
 			
+			/*for(int i=start.getRow();i<=end.getRow();i++){
+				for(int j=start.getCol();j<=end.getCol();j++){
+					String currCell=???;
+					SpreadsheetLocation spreadsheetCell= new SpreadsheetLocation(currCell);
+					sum+=((RealCell)(sheet.getCell(spreadsheetCell))).getDoubleValue();
+				}
+			}
+			currAnswer=sum;
+			*/
 			for(int i=0;i<(start.getRow())+1;i++){
 				for(int j=0;j<(end.getCol())+1;j++){
 					//currAnswer+=((RealCell) cells[i][j]).getDoubleValue();
@@ -39,28 +49,27 @@ public class FormulaCell extends RealCell{
 			
 			
 				
-			/*
-			for(int rows=start.getRow();rows<end.getRow();rows++){
-				for(int cols=start.getCol();cols<end.getCol();cols++){
-					SpreadsheetLocation inbetweenCell=new SpreadsheetLocation((int)'A'+cols+""+rows);
-					String contents=cells[rows][cols].abbreviatedCellText();
-					String[] splittedContents =contents.split(" ");
-					if(sheet.getCell(inbetweenCell)instanceof RealCell){
-						for(int i=0;i<splittedContents.length;i++){
-							currAnswer+=Double.parseDouble(splittedContents[i]);
-						}
-						
-					}
-			}
-				
-		}*/
+		
 			
 		}else if(splittedFormula[1].toUpperCase().equals("AVG")){
+			//String[] range=splittedFormula[2].split("-");
+			//SpreadsheetLocation start =new SpreadsheetLocation(range[0]);
+			//SpreadsheetLocation end =new SpreadsheetLocation(range[1]);
+			//currAnswer=((RealCell)sheet.getCell(start)).getDoubleValue();
 			String[] range=splittedFormula[2].split("-");
 			SpreadsheetLocation start =new SpreadsheetLocation(range[0]);
 			SpreadsheetLocation end =new SpreadsheetLocation(range[1]);
-			currAnswer=((RealCell)sheet.getCell(start)).getDoubleValue();
+			double sum=0;
 			
+			for(int i=start.getRow();i<=end.getRow();i++){
+				for(int j=start.getCol();j<=end.getCol();j++){
+					String currCell=???;
+					SpreadsheetLocation spreadsheetCell= new SpreadsheetLocation(currCell);
+					sum+=((RealCell)(sheet.getCell(spreadsheetCell))).getDoubleValue();
+					count++;
+				}
+			}
+			currAnswer=sum/count;
 			
 		}else{
 			currAnswer=Double.parseDouble(splittedFormula[1]);;	//initialize currAnswer as first number and cycle through for loop
