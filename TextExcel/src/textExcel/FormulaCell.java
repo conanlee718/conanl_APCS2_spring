@@ -63,7 +63,7 @@ public class FormulaCell extends RealCell{
 			
 			for(int i=start.getRow();i<=end.getRow();i++){
 				for(int j=start.getCol();j<=end.getCol();j++){
-					String currCell=???;
+					String currCell=(char)'A'+j+""+i;
 					SpreadsheetLocation spreadsheetCell= new SpreadsheetLocation(currCell);
 					sum+=((RealCell)(sheet.getCell(spreadsheetCell))).getDoubleValue();
 					count++;
