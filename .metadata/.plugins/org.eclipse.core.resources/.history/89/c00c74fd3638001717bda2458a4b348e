@@ -16,10 +16,39 @@ public class FormulaCell extends RealCell{
 		//This is for the first part of input of formula cell to see if it is SUM, AVG, a number, or a cell
 		if(splittedFormula[1].toUpperCase().equals("SUM")){
 			return sum(splittedFormula[2]);
+			/*String[] range=splittedFormula[2].split("-");
+			SpreadsheetLocation start =new SpreadsheetLocation(range[0]);
+			SpreadsheetLocation end =new SpreadsheetLocation(range[1]);
+			double sum=0;
 			
+			for(int i=0;i<(start.getRow())+1;i++){
+				for(int j=0;j<(end.getCol())+1;j++){
+					if(start==end){
+						currAnswer=((RealCell)sheet.getCell(start)).getDoubleValue();
+					}else if(start.getRow()>end.getRow()){
+						SpreadsheetLocation middle = new SpreadsheetLocation(range[0]+1);
+						currAnswer+=((RealCell)sheet.getCell(middle)).getDoubleValue();
+					}
+				}
+			}
+			currAnswer=((RealCell)sheet.getCell(start)).getDoubleValue();
+			*/
 		}else if(splittedFormula[1].toUpperCase().equals("AVG")){
 			return avg(splittedFormula[2]);
-
+//			String[] range=splittedFormula[2].split("-");
+//			SpreadsheetLocation start =new SpreadsheetLocation(range[0]);
+//			SpreadsheetLocation end =new SpreadsheetLocation(range[1]);
+//			double sum=0;
+//			
+//			for(int i=start.getRow();i<=end.getRow();i++){
+//				for(int j=start.getCol();j<=end.getCol();j++){
+//					String currCell=(char)'A'+j+""+i;
+//					SpreadsheetLocation spreadsheetCell= new SpreadsheetLocation(currCell);
+//					sum+=((RealCell)(sheet.getCell(spreadsheetCell))).getDoubleValue();
+//					count++;
+//				}
+//			}
+//			currAnswer=sum/count;
 		}if(splittedFormula[1].toUpperCase().charAt(0)>(int)'A'-1 && splittedFormula[1].toUpperCase().charAt(0)<(int)'L'+1 && !(splittedFormula[1].toUpperCase().equals("AVG"))){
 			SpreadsheetLocation cell = new SpreadsheetLocation(splittedFormula[1]);
 			currAnswer=currAnswer + ((RealCell)sheet.getCell(cell)).getDoubleValue();
@@ -68,10 +97,12 @@ public class FormulaCell extends RealCell{
 	public String abbreviatedCellText() {
 		return (getDoubleValue()+"            ").substring(0, 10);		//add however many spaces and then substring
 	}
+
 	@Override
 	public String fullCellText() {
 		return formula;						//return the formula itself only with correct calculations
 	}
+	
 	public double sum(String range) {
 		String[] minigrid=range.split("-");
 		SpreadsheetLocation start =new SpreadsheetLocation(minigrid[0]);
@@ -103,5 +134,7 @@ public class FormulaCell extends RealCell{
 			}
 		}
 		return sum/count;
-	}	
+	}
+	
+	
 }

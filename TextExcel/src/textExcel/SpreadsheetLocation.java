@@ -29,7 +29,7 @@ public class SpreadsheetLocation implements Location
     public SpreadsheetLocation(String cellName){
     	
         // TODO: Fill this out with your own code
-    	colNum=(int)cellName.charAt(0)-(int)'A';
+    	colNum=(int)cellName.toUpperCase().charAt(0)-(int)'A';
     	rowNum=Integer.parseInt(cellName.substring(1))-1;
     }
 
